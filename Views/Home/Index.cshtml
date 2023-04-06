@@ -1,0 +1,44 @@
+﻿@using Models
+@model IEnumerable<Models.UserModel>
+@{
+    ViewData["Title"] = "Home Page";
+    var data = (int[])ViewData["data"];
+    var data1 = (int[])ViewData["data1"];
+    var data2 = (int?)ViewData["data2"];
+    var data3 = (int?)ViewData["data3"];
+    var data4 = (int?)ViewData["data4"];
+    var users = (IEnumerable<Models.UserModel>) ViewData["users"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Console.Write</h1>
+</div>
+<p> Origin: 
+@foreach(var item in data)
+    {
+        <a href="#" rel="tag" data-wpel-link="internal">@item</a>
+    }
+</p>
+<p> Even Data1:
+@foreach(var item in data1)
+    {
+        <a href="#" rel="tag" data-wpel-link="internal">@item</a>
+    }
+</p>
+<p>Data 2: @data2</p>
+<p>Data 3: @data3</p>
+<p>Data 4: @data4</p>
+
+<p> View Data Users:
+@foreach(var item in users)
+    {
+        <a href="#" rel="tag" data-wpel-link="internal">@item.name</a>
+    }
+</p>
+
+<p> View Bag Users:
+@foreach(var item in @ViewBag.bagUsers)
+    {
+        <a href="#" rel="tag" data-wpel-link="internal">@item.name</a>
+    }
+</p>
